@@ -336,8 +336,8 @@ export function AdvancedComparator() {
 
                   <div className="pressure-track relative h-4">
                     <div
-                      className="pressure-fill h-full bg-black dark:bg-white"
-                      style={{ width: `${Math.min(progressPercent, 100)}%` }}
+                      className="pressure-fill pressure-fill-smooth h-full bg-black dark:bg-white"
+                      style={{ transform: `scaleX(${Math.min(progressPercent, 100) / 100})` }}
                     />
                     <div className="pressure-mark" style={{ left: '70%' }} />
                   </div>

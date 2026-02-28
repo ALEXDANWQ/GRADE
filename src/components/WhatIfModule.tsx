@@ -219,7 +219,10 @@ export function WhatIfModule() {
             </span>
           </div>
           <div className="pressure-track relative h-4">
-            <div className="pressure-fill h-full bg-black dark:bg-white" style={{ width: `${cappedLoadPercentage}%` }} />
+            <div
+              className="pressure-fill pressure-fill-smooth h-full bg-black dark:bg-white"
+              style={{ transform: `scaleX(${cappedLoadPercentage / 100})` }}
+            />
             <div className="pressure-mark" style={{ left: '70%' }} />
           </div>
           <div className="mt-3 grid grid-cols-3 text-[10px] text-muted-foreground sm:hidden">

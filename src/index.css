@@ -370,6 +370,16 @@
     will-change: width;
   }
 
+  .pressure-fill-smooth {
+    position: absolute;
+    inset: 0;
+    transform-origin: left center;
+    transition:
+      transform var(--motion-slow) var(--ease-out),
+      background-color var(--motion-base) var(--ease-standard);
+    will-change: transform;
+  }
+
   .pressure-fill-live {
     transition: none;
   }
