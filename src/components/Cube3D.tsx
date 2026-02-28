@@ -34,11 +34,11 @@ interface FragmentConfig {
 type ConcreteTextureVariant = 'intact' | 'cracked' | 'destroyed';
 type CubeFace = 'px' | 'nx' | 'py' | 'ny' | 'pz' | 'nz';
 
-const texturePaths = [
-  '/textures/concrete/concrete_basecolor_1k.jpg',
-  '/textures/concrete/concrete_normal_1k.png',
-  '/textures/concrete/concrete_roughness_1k.jpg',
-] as const;
+const texturePaths: [string, string, string] = [
+  `${import.meta.env.BASE_URL}textures/concrete/concrete_basecolor_1k.jpg`,
+  `${import.meta.env.BASE_URL}textures/concrete/concrete_normal_1k.png`,
+  `${import.meta.env.BASE_URL}textures/concrete/concrete_roughness_1k.jpg`,
+];
 
 const clamp = (value: number, min: number, max: number): number => Math.max(min, Math.min(max, value));
 
