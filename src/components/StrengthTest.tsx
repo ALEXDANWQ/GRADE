@@ -32,6 +32,7 @@ export function StrengthTest({ concreteClass, compact = false }: StrengthTestPro
   const elapsedMsRef = useRef(0);
 
   const maxLoad = concreteClass.strengthMPa;
+  const previewHeightClass = compact ? 'h-[clamp(220px,34vh,320px)]' : 'h-[clamp(300px,46vh,520px)]';
   const safeMaxLoad = maxLoad > 0 ? maxLoad : 1;
   const crackThreshold = maxLoad * DEFAULT_STRENGTH_SIMULATION_CONFIG.crackRatio;
   const progressPercent = Math.min(Math.max((currentLoad / safeMaxLoad) * 100, 0), 100);
@@ -107,7 +108,7 @@ export function StrengthTest({ concreteClass, compact = false }: StrengthTestPro
   }, [runFromCurrentPoint, testState]);
 
   const getStateControlsClass = (stateKey: TestState) =>
-    `absolute inset-0 flex items-center justify-center gap-3 transition-opacity duration-200 ease-out will-change-opacity ${
+    `absolute inset-0 flex flex-wrap items-center justify-center gap-2 transition-opacity duration-200 ease-out will-change-opacity ${
       testState === stateKey ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
     }`;
 
@@ -121,7 +122,7 @@ export function StrengthTest({ concreteClass, compact = false }: StrengthTestPro
     <div className={`${compact ? 'space-y-4' : 'space-y-6'} animate-rise-in-soft`}>
       <Suspense
         fallback={
-          <div className={`${compact ? 'h-56' : 'h-72'} w-full animate-pulse rounded-2xl bg-secondary/35`} />
+          <div className={`${previewHeightClass} w-full animate-pulse rounded-2xl bg-secondary/35`} />
         }
       >
         <Cube3D
@@ -187,38 +188,38 @@ export function StrengthTest({ concreteClass, compact = false }: StrengthTestPro
         </span>
       </div>
 
-      <div className={`${compact ? 'pt-1' : 'pt-2'} relative mx-auto min-h-[56px] w-full max-w-[760px]`}>
+      <div className={`${compact ? 'pt-1' : 'pt-2'} relative mx-auto min-h-[112px] w-full max-w-[760px] sm:min-h-[56px]`}>
         <div className={getStateControlsClass('idle')}>
-          <Button onClick={startTest} size="lg" className="gap-2 rounded-2xl px-7">
+          <Button onClick={startTest} size="lg" className="w-full gap-2 rounded-2xl px-5 sm:w-auto sm:px-7">
             <Play className="h-5 w-5" />
             Протестировать прочность
           </Button>
         </div>
 
         <div className={getStateControlsClass('running')}>
-          <Button onClick={pauseTest} size="lg" className="gap-2 rounded-2xl px-7">
+          <Button onClick={pauseTest} size="lg" className="w-full gap-2 rounded-2xl px-5 sm:w-auto sm:px-7">
             <Pause className="h-5 w-5" />
             Пауза
           </Button>
-          <Button onClick={resetTest} size="lg" variant="outline" className="gap-2 rounded-2xl px-6">
+          <Button onClick={resetTest} size="lg" variant="outline" className="w-full gap-2 rounded-2xl px-5 sm:w-auto sm:px-6">
             <RotateCcw className="h-5 w-5" />
             С начала
           </Button>
         </div>
 
         <div className={getStateControlsClass('paused')}>
-          <Button onClick={resumeTest} size="lg" className="gap-2 rounded-2xl px-7">
+          <Button onClick={resumeTest} size="lg" className="w-full gap-2 rounded-2xl px-5 sm:w-auto sm:px-7">
             <Play className="h-5 w-5" />
             Продолжить
           </Button>
-          <Button onClick={resetTest} size="lg" variant="outline" className="gap-2 rounded-2xl px-6">
+          <Button onClick={resetTest} size="lg" variant="outline" className="w-full gap-2 rounded-2xl px-5 sm:w-auto sm:px-6">
             <RotateCcw className="h-5 w-5" />
             С начала
           </Button>
         </div>
 
         <div className={getStateControlsClass('complete')}>
-          <Button onClick={startTest} size="lg" variant="outline" className="gap-2 rounded-2xl px-7">
+          <Button onClick={startTest} size="lg" variant="outline" className="w-full gap-2 rounded-2xl px-5 sm:w-auto sm:px-7">
             <RotateCcw className="h-5 w-5" />
             Повторить испытание
           </Button>

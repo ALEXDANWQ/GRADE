@@ -414,7 +414,7 @@ export function SPBMap({ apiKey }: SPBMapProps) {
         </div>
       </div>
 
-      <div className="relative h-[420px] sm:h-[500px] md:h-[580px]">
+      <div className="relative h-[clamp(340px,58vh,760px)]">
         {status === 'ready' && <div ref={containerRef} className="ymap-minimal h-full w-full bg-secondary/20 [will-change:transform]" />}
 
         {status === 'loading' && (

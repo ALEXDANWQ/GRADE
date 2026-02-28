@@ -406,6 +406,9 @@ interface Cube3DProps {
   compact?: boolean;
 }
 
+const getCubeHeightClass = (compact: boolean) =>
+  compact ? 'h-[clamp(220px,34vh,320px)]' : 'h-[clamp(300px,46vh,520px)]';
+
 function FallbackCube({
   state,
   progress,
@@ -413,13 +416,13 @@ function FallbackCube({
   compact = false,
 }: Pick<Cube3DProps, 'state' | 'progress' | 'maxProgress' | 'compact'>) {
   const percent = clamp((progress / maxProgress) * 100, 0, 100);
-  const heightClass = compact ? 'h-56' : 'h-72';
+  const heightClass = getCubeHeightClass(compact);
 
   return (
     <div className={`relative ${heightClass} w-full overflow-hidden rounded-2xl bg-gradient-to-b from-secondary/60 to-secondary/34`}>
-      <div className="absolute inset-x-8 top-8 rounded-2xl bg-white/86 p-6 backdrop-blur-md">
+      <div className="absolute inset-x-4 top-4 rounded-2xl bg-white/86 p-4 backdrop-blur-md sm:inset-x-8 sm:top-8 sm:p-6">
         <div className="mb-4 text-center text-sm font-medium text-muted-foreground">Упрощенный режим визуализации</div>
-        <div className="mx-auto mb-4 h-28 w-28 rounded-2xl border border-border bg-gradient-to-br from-zinc-100 to-zinc-300" />
+        <div className="mx-auto mb-4 h-24 w-24 rounded-2xl border border-border bg-gradient-to-br from-zinc-100 to-zinc-300 sm:h-28 sm:w-28" />
         <div className="h-3 overflow-hidden rounded-full bg-secondary">
           <div
             className={`h-full transition-all duration-300 ${
@@ -429,10 +432,10 @@ function FallbackCube({
           />
         </div>
       </div>
-      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+      <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-center justify-between gap-2">
         <div
           className={`
-            rounded-xl border px-4 py-2 text-xs font-semibold backdrop-blur-md
+            rounded-xl border px-3 py-2 text-xs font-semibold backdrop-blur-md sm:px-4
             ${state === 'intact' ? 'border-success/20 bg-success/10 text-success' : ''}
             ${state === 'cracked' ? 'border-amber-500/20 bg-amber-500/10 text-amber-600' : ''}
             ${state === 'destroyed' ? 'border-danger/20 bg-danger/10 text-danger' : ''}
@@ -453,7 +456,7 @@ function FallbackCube({
 export function Cube3D({ state, progress, maxProgress, isShaking, seedKey, compact = false }: Cube3DProps) {
   const reducedMotion = usePrefersReducedMotion();
   const [isLowPerformance, setIsLowPerformance] = useState(false);
-  const heightClass = compact ? 'h-56' : 'h-72';
+  const heightClass = getCubeHeightClass(compact);
 
   useEffect(() => {
     const nav = navigator as Navigator & { deviceMemory?: number };
@@ -482,10 +485,10 @@ export function Cube3D({ state, progress, maxProgress, isShaking, seedKey, compa
         <CubeMesh state={state} progress={progress} maxProgress={maxProgress} isShaking={isShaking} seedKey={seedKey} />
       </Canvas>
 
-      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+      <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-center justify-between gap-2">
         <div
           className={`
-            rounded-xl border px-4 py-2 text-xs font-semibold backdrop-blur-md
+            rounded-xl border px-3 py-2 text-xs font-semibold backdrop-blur-md sm:px-4
             ${state === 'intact' ? 'border-success/20 bg-success/10 text-success' : ''}
             ${state === 'cracked' ? 'border-amber-500/20 bg-amber-500/10 text-amber-600' : ''}
             ${state === 'destroyed' ? 'border-danger/20 bg-danger/10 text-danger' : ''}

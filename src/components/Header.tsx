@@ -126,8 +126,8 @@ export function Header({ activeSection, onSectionChange }: HeaderProps) {
   };
 
   return (
-    <header className="fixed inset-x-0 top-2 z-[90] px-2 sm:px-3 md:px-5 lg:px-8" ref={headerRef}>
-      <div className="glass-overlay mx-auto max-w-[1400px] rounded-2xl border border-border/75 shadow-[0_24px_42px_-34px_rgb(15_23_42/0.45)] sm:rounded-[28px]">
+    <header className="fixed inset-x-0 top-2 z-[90] px-2 sm:px-3 md:px-5 lg:px-8 2xl:px-12" ref={headerRef}>
+      <div className="glass-overlay mx-auto max-w-[1880px] rounded-2xl border border-border/75 shadow-[0_24px_42px_-34px_rgb(15_23_42/0.45)] sm:rounded-[28px]">
         <div className="px-3 sm:px-4 md:px-6">
           <div className="flex items-center justify-between gap-2 py-2.5 sm:gap-3 sm:py-3">
             <button

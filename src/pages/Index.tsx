@@ -24,7 +24,7 @@ const sectionAnchorStyle: CSSProperties = {
   scrollMarginTop: 'calc(var(--header-height, 96px) + 24px)',
 };
 
-const pageLayoutClass = 'mx-auto w-full max-w-[1400px] px-4 md:px-6';
+const pageLayoutClass = 'mx-auto w-full max-w-[1880px] px-4 sm:px-6 xl:px-8 2xl:px-12';
 const PANEL_CLOSE_MS = 420;
 const DETAIL_PREFETCH_DELAY_MS = 350;
 
@@ -206,15 +206,15 @@ const Index = () => {
       </div>
       <Header activeSection={activeSection} onSectionChange={setActiveSection} />
 
-      <section className="pb-12 pt-8 md:pb-16 md:pt-12">
+      <section className="pb-12 pt-8 md:pb-16 md:pt-12 2xl:pb-20">
         <div className={pageLayoutClass}>
-          <div className="max-w-4xl animate-rise-in-soft">
+          <div className="max-w-5xl animate-rise-in-soft">
             <div className="glass-card mb-6 inline-flex items-center gap-2 rounded-full border border-primary/25 px-4 py-2 animate-fade-in">
               <Sparkles className="h-4 w-4 text-primary" />
               <span className="text-sm font-medium text-primary">Интерактивная бетонная лаборатория</span>
             </div>
 
-            <h2 className="animate-fade-in text-4xl font-bold tracking-tight text-foreground stagger-1 md:text-5xl lg:text-[3.45rem]">
+            <h2 className="animate-fade-in text-4xl font-bold tracking-tight text-foreground stagger-1 md:text-5xl lg:text-[3.45rem] 2xl:text-[3.9rem]">
               Классы прочности <span className="text-foreground">бетона</span>
             </h2>
 
@@ -241,7 +241,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="classes" className="py-14 md:py-16" style={sectionAnchorStyle}>
+      <section id="classes" className="py-14 md:py-16 2xl:py-20" style={sectionAnchorStyle}>
         <div className={pageLayoutClass}>
           <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
             <div>
@@ -252,7 +252,7 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
             {concreteClasses.map((concreteClass, index) => (
               <ConcreteCard
                 key={concreteClass.id}
@@ -266,7 +266,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="map" className="py-14 md:py-16" style={sectionAnchorStyle}>
+      <section id="map" className="py-14 md:py-16 2xl:py-20" style={sectionAnchorStyle}>
         <div className={pageLayoutClass}>
           <div className="mb-10">
             <h3 className="text-2xl font-bold text-foreground md:text-3xl">Карта применения</h3>
@@ -274,13 +274,13 @@ const Index = () => {
               Объекты Санкт-Петербурга и классы бетона, характерные для их несущих конструкций.
             </p>
           </div>
-          <Suspense fallback={<SectionFallback className="h-[500px]" />}>
+          <Suspense fallback={<SectionFallback className="h-[clamp(360px,56vh,680px)]" />}>
             <SPBMap />
           </Suspense>
         </div>
       </section>
 
-      <section id="selector" className="py-14 md:py-16" style={sectionAnchorStyle}>
+      <section id="selector" className="py-14 md:py-16 2xl:py-20" style={sectionAnchorStyle}>
         <div className={pageLayoutClass}>
           <div className="mb-10">
             <h3 className="text-2xl font-bold text-foreground md:text-3xl">Подбор класса бетона</h3>
@@ -290,7 +290,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="whatif" className="py-14 md:py-16" style={sectionAnchorStyle}>
+      <section id="whatif" className="py-14 md:py-16 2xl:py-20" style={sectionAnchorStyle}>
         <div className={pageLayoutClass}>
           <div className="mb-10">
             <h3 className="text-2xl font-bold text-foreground md:text-3xl">Что если...?</h3>
@@ -300,7 +300,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="comparator" className="py-14 md:py-16" style={sectionAnchorStyle}>
+      <section id="comparator" className="py-14 md:py-16 2xl:py-20" style={sectionAnchorStyle}>
         <div className={pageLayoutClass}>
           <div className="mb-10">
             <h3 className="text-2xl font-bold text-foreground md:text-3xl">Продвинутый компаратор</h3>

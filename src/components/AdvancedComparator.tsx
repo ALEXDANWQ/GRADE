@@ -154,7 +154,7 @@ export function AdvancedComparator() {
     <div className="surface-panel overflow-hidden animate-rise-in-soft">
       <div className="relative border-b border-border/70 bg-white/75 p-5">
         <div className="flex justify-start">
-          <div className="relative inline-grid w-full max-w-[260px] grid-cols-2 overflow-hidden rounded-full border border-border/70 bg-card/80 p-1 shadow-sm sm:w-[220px]">
+          <div className="relative inline-grid w-full max-w-[280px] grid-cols-2 overflow-hidden rounded-full border border-border/70 bg-card/80 p-1 shadow-sm sm:w-[240px] sm:max-w-[260px]">
             <span
               aria-hidden
               className={`pointer-events-none absolute inset-y-0.5 left-0.5 rounded-full bg-[#000000] dark:bg-[#ffffff] transition-transform will-change-transform ${
@@ -234,7 +234,7 @@ export function AdvancedComparator() {
           </div>
         </div>
 
-        <div className="relative overflow-hidden rounded-2xl border border-border/70 bg-card/55" style={{ height: 'clamp(360px, 62vh, 580px)' }}>
+        <div className="relative overflow-hidden rounded-2xl border border-border/70 bg-card/55" style={{ height: 'clamp(320px, 58vh, 640px)' }}>
           <div
             className={`absolute inset-0 p-4 transition-all ease-out sm:p-5 ${
               showDepthMode ? 'pointer-events-none translate-y-2 scale-[0.995] opacity-0' : 'translate-y-0 scale-100 opacity-100'
@@ -245,7 +245,7 @@ export function AdvancedComparator() {
               <div className="mx-auto flex min-h-full w-full max-w-[1080px] flex-col">
                 <div>
                   <h4 className="mb-3 text-center text-sm font-semibold text-foreground">Добавьте объекты</h4>
-                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     {comparisonObjects.map((obj) => {
                       const Icon = getIconByName(obj.icon);
 

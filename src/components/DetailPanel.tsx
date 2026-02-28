@@ -19,16 +19,13 @@ export function DetailPanel({ concreteClass, onClose, isClosing = false }: Detai
   const categoryColor = getCategoryColor(concreteClass.category);
   const categoryLabel = getCategoryLabel(concreteClass.category);
   const panelStyle = {
-    height: 'min(800px, calc(100dvh - var(--header-height) - 56px))',
+    maxHeight: 'calc(100dvh - var(--header-height) - 24px)',
   } as const;
 
   return (
-    <div
-      className="pointer-events-none fixed inset-x-2 z-[70] sm:inset-x-4 md:inset-x-6 lg:inset-x-10"
-      style={{ top: 'calc(var(--header-height) + 12px)' }}
-    >
+    <div className="pointer-events-none fixed inset-x-2 z-[70] sm:inset-x-4 md:inset-x-6 lg:inset-x-10 2xl:inset-x-14" style={{ top: 'calc(var(--header-height) + 12px)' }}>
       <div
-        className={`detail-panel-motion pointer-events-auto mx-auto flex w-full max-w-[1400px] flex-col overflow-hidden rounded-[24px] border border-border/80 bg-card shadow-[0_34px_72px_-36px_rgb(15_23_42/0.5)] sm:rounded-[30px] ${
+        className={`detail-panel-motion pointer-events-auto mx-auto flex w-full max-w-[1880px] flex-col overflow-hidden rounded-[24px] border border-border/80 bg-card shadow-[0_34px_72px_-36px_rgb(15_23_42/0.5)] sm:rounded-[30px] ${
           isClosing ? 'animate-panel-out-bottom' : 'animate-panel-in-bottom'
         }`}
         style={panelStyle}
@@ -43,7 +40,7 @@ export function DetailPanel({ concreteClass, onClose, isClosing = false }: Detai
               <div className={`mb-3 inline-flex rounded-lg border px-2.5 py-1 text-xs font-medium ${categoryColor}`}>
                 {categoryLabel}
               </div>
-              <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl md:text-4xl">{concreteClass.name}</h2>
+              <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl md:text-4xl 2xl:text-[2.8rem]">{concreteClass.name}</h2>
               <div className="mt-2 flex items-baseline gap-2">
                 <span className="font-mono text-xl font-semibold text-primary sm:text-2xl">{concreteClass.strengthMPa}</span>
                 <span className="text-muted-foreground">МПа</span>
@@ -62,9 +59,9 @@ export function DetailPanel({ concreteClass, onClose, isClosing = false }: Detai
           </div>
         </div>
 
-        <div className="min-h-0 flex-1 overflow-hidden px-4 pb-5 pt-4 sm:px-5 sm:pb-7 sm:pt-5 md:px-8 md:pb-10 md:pt-8">
-          <div className="grid h-full gap-3 sm:gap-4 xl:grid-cols-[minmax(0,1.2fr)_minmax(0,0.95fr)]">
-            <div className="space-y-4 xl:order-2">
+        <div className="min-h-0 flex-1 overflow-y-auto px-4 pb-5 pt-4 sm:px-5 sm:pb-7 sm:pt-5 md:px-8 md:pb-10 md:pt-8">
+          <div className="grid h-full gap-3 sm:gap-4 lg:gap-5 2xl:grid-cols-[minmax(0,1.18fr)_minmax(0,0.95fr)]">
+            <div className="order-2 space-y-4 2xl:order-2">
               <div className="glass-card animate-rise-in-soft rounded-2xl border border-border/75 p-4 shadow-sm stagger-1">
                 <h3 className="mb-2 flex items-center gap-2 text-sm font-medium text-muted-foreground">
                   <IconLayers className="h-4 w-4" />
@@ -96,7 +93,7 @@ export function DetailPanel({ concreteClass, onClose, isClosing = false }: Detai
               </div>
             </div>
 
-            <div className="animate-rise-in-soft rounded-2xl p-2 sm:p-4 stagger-4 md:p-4 xl:order-1">
+            <div className="order-1 animate-rise-in-soft rounded-2xl p-2 sm:p-4 stagger-4 md:p-4 2xl:order-1">
               <h3 className="mb-3 flex items-center gap-2 text-base font-semibold text-foreground sm:mb-4 sm:text-lg">
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-primary/20 bg-primary/10">
                   <IconLab className="h-4 w-4 text-primary" />
