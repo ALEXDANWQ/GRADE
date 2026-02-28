@@ -59,7 +59,7 @@ export function DetailPanel({ concreteClass, onClose, isClosing = false }: Detai
           </div>
         </div>
 
-        <div className="min-h-0 flex-1 overflow-y-auto px-4 pb-5 pt-4 sm:px-5 sm:pb-7 sm:pt-5 md:px-8 md:pb-10 md:pt-8">
+        <div className="scrollbar-hide min-h-0 flex-1 overflow-y-auto px-4 pb-5 pt-4 sm:px-5 sm:pb-7 sm:pt-5 md:px-8 md:pb-10 md:pt-8">
           <div className="grid h-full gap-3 sm:gap-4 lg:gap-5 2xl:grid-cols-[minmax(0,1.18fr)_minmax(0,0.95fr)]">
             <div className="order-2 space-y-4 2xl:order-2">
               <div className="glass-card animate-rise-in-soft rounded-2xl border border-border/75 p-4 shadow-sm stagger-1">
