@@ -34,7 +34,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          VITE_YMAPS_API_KEY: ${{ secrets.VITE_YMAPS_API_KEY }}
+          VITE_YMAPS_API_KEY: ${{ secrets.MAPY }}
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
